@@ -170,28 +170,66 @@ class Controller {
 
   static async createProduct(req, res) {
     try {
-      const { name, price, description } = req.body;
-      const newProduct = await Product.create({ name, price, description });
-      res
-        .status(201)
-        .json({ message: "Product created successfully", product: newProduct });
+      const { name, description, price, stock } = req.body;
+
+      if (!name || !description || !price || !stock) {
+        return res.status(400).json({
+          message: "Missing required fields: name, price, description, stock",
+        });
+      }
+
+      if (isNaN(price) || isNaN(stock)) {
+        return res.status(400).json({
+          message: "Price and stock must be numeric values",
+        });
+      }
+
+      const newProduct = await Product.create({
+        name,
+        description,
+        price,
+        stock,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      });
+
+      res.status(201).json({
+        message: "Product created successfully",
+        product: newProduct,
+      });
     } catch (error) {
-      res
-        .status(500)
-        .json({ message: "Error creating product", error: error.message });
+      if (error.name === "Unauthorized") {
+        return res.status(403).json({
+          message: "Forbidden: " + error.message,
+        });
+      }
+      res.status(500).json({
+        message: "Error creating product",
+        error: error.message,
+      });
     }
   }
 
   static async updateProduct(req, res) {
     try {
       const { id } = req.params;
-      const { name, price, description } = req.body;
+      const { name, price, description, stock } = req.body;
+
       const existingProduct = await Product.findByPk(id);
       if (!existingProduct) {
         return res.status(404).json({ message: "Product not found" });
       }
-      await existingProduct.update({ name, price, description });
-      res.json({
+
+      const updatedFields = Object.assign({}, existingProduct, {
+        name: name || existingProduct.name,
+        price: price || existingProduct.price,
+        description: description || existingProduct.description,
+        stock: stock || existingProduct.stock,
+      });
+
+      await existingProduct.update(updatedFields);
+
+      return res.json({
         message: "Product updated successfully",
         product: existingProduct,
       });

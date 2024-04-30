@@ -18,8 +18,12 @@ async function admin(req, res, next) {
       };
     }
   } catch (err) {
-    console.log(err);
-    next(err);
+    console.error(err);
+
+    res.status(403).json({
+      message: err.message || "Forbidden: Access denied",
+      error: err.name || "Unauthorized",
+    });
   }
 }
 

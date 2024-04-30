@@ -2,7 +2,6 @@ const express = require("express");
 const Controller = require("../controllers");
 const auth = require("../middleware/authentication");
 const adminOnly = require("../middleware/adminOnly");
-const authorization = require("../middleware/authorization");
 const router = express.Router();
 
 // User routes

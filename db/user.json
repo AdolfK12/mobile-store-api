@@ -1,0 +1,32 @@
+[
+  {
+    "username": "Fritz",
+    "email": "fmorot0@tmall.com",
+    "password": "Morot",
+    "role": "admin"
+  },
+  {
+    "username": "Kienan",
+    "email": "ktawton1@Admin.ch",
+    "password": "Tawton",
+    "role": "admin"
+  },
+  {
+    "username": "Reeva",
+    "email": "rcoates2@amazon.com",
+    "password": "Coates",
+    "role": "user"
+  },
+  {
+    "username": "Malcolm",
+    "email": "mlacey3@istockphoto.com",
+    "password": "Lacey",
+    "role": "user"
+  },
+  {
+    "username": "Nero",
+    "email": "nvanyukov4@smh.com.au",
+    "password": "Vanyukov",
+    "role": "user"
+  }
+]

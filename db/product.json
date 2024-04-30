@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Wine - Duboeuf Beaujolais",
+    "description": "Unspecified transport accident, initial encounter",
+    "price": 1000,
+    "stock": 20
+  },
+  {
+    "name": "Croissant, Raw - Mini",
+    "description": "Gout due to renal impairment, elbow",
+    "price": 91000,
+    "stock": 89
+  },
+  {
+    "name": "Nantucket Apple Juice",
+    "description": "Driver of bus injured in collision w ped/anml in traf",
+    "price": 73000,
+    "stock": 2
+  },
+  {
+    "name": "Pastry - Plain Baked Croissant",
+    "description": "Nondisp trimalleolar fracture of unsp lower leg, sequela",
+    "price": 44000,
+    "stock": 85
+  },
+  {
+    "name": "Wine - Beringer Founders Estate",
+    "description": "Furuncle of left foot",
+    "price": 96000,
+    "stock": 70
+  },
+  {
+    "name": "Wonton Wrappers",
+    "description": "Injured by rotating propeller",
+    "price": 70000,
+    "stock": 8
+  },
+  {
+    "name": "Croissants Thaw And Serve",
+    "description": "Person outside bus injured in clsn w statnry object nontraf",
+    "price": 56000,
+    "stock": 48
+  },
+  {
+    "name": "Pecan Raisin - Tarts",
+    "description": "Changes in retinal vascular appearance, bilateral",
+    "price": 75000,
+    "stock": 14
+  },
+  {
+    "name": "Beans - Green",
+    "description": "Unspecified open wound of unspecified shoulder, init encntr",
+    "price": 5000,
+    "stock": 96
+  },
+  {
+    "name": "Ranchero - Primerba, Paste",
+    "description": "Greenstick fx shaft of rad, r arm, subs for fx w malunion",
+    "price": 78000,
+    "stock": 19
+  }
+]

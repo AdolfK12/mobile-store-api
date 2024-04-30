@@ -11,24 +11,36 @@ module.exports = {
       },
       productId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Products",
           key: "id",
         },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
+        validate: {
+          notNull: true,
+        },
       },
       userId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Users",
           key: "id",
         },
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
+        validate: {
+          notNull: true,
+        },
       },
       rating: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: true,
+        },
       },
       comment: {
         type: Sequelize.STRING,

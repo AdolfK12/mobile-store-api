@@ -14,9 +14,27 @@ module.exports = (sequelize, DataTypes) => {
   }
   Order.init(
     {
-      userId: DataTypes.INTEGER,
-      orderDate: DataTypes.DATE,
-      status: DataTypes.STRING,
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        validate: {
+          notNull: true,
+        },
+      },
+      orderDate: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        validate: {
+          notNull: true,
+        },
+      },
+      status: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: true,
+        },
+      },
     },
     {
       sequelize,

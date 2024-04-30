@@ -1,6 +1,8 @@
 "use strict";
-const { Model } = require("sequelize");
-module.exports = (sequelize, DataTypes) => {
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+
+module.exports = (sequelize) => {
   class User extends Model {
     /**
      * Helper method for defining associations.
@@ -11,18 +13,61 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Order, { foreignKey: "userId" });
       User.hasMany(models.Review, { foreignKey: "userId" });
     }
+
+    async validatePassword(password) {
+      return await bcrypt.compare(password, this.password);
+    }
   }
+
   User.init(
     {
-      username: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
-      role: DataTypes.STRING,
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: {
+            msg: "Invalid email format",
+          },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [5, 255],
+            msg: "Password must be between 5 and 255 characters",
+          },
+        },
+      },
+      role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "user",
+      },
     },
     {
       sequelize,
       modelName: "User",
+      hooks: {
+        beforeCreate: async (user) => {
+          const hashedPassword = await bcrypt.hash(user.password, 10);
+          user.password = hashedPassword;
+        },
+        beforeUpdate: async (user) => {
+          if (user.changed("password")) {
+            const hashedPassword = await bcrypt.hash(user.password, 10);
+            user.password = hashedPassword;
+          }
+        },
+      },
     }
   );
+
   return User;
 };

@@ -11,6 +11,7 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: "Users",
           key: "id",
@@ -20,9 +21,11 @@ module.exports = {
       },
       orderDate: {
         type: Sequelize.DATE,
+        allowNull: false,
       },
       status: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,

@@ -266,4 +266,4 @@ Testing for the API is currently in development and is not yet fully implemented
 
 ## Note
 
-This project is originally a task, and I haven't had the chance to create test cases yet. Over the next few days, I'll be updating the project to demonstrate various optimizations in the backend as optimally as possible. Stay tuned for further improvements and updates.
+This project is originally a task, and I haven't had the chance to create test cases yet. Over the next few days, I'll be updating the project to demonstrate various optimizations in the backend as optimally as possible. Stay tuned for further improvements and updates. Loom Video : https://www.loom.com/share/fe5ddc553c7144df9ffa735f2bb1e5ea?sid=ae76b945-0934-438e-bff5-b15f633d7456

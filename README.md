@@ -17,8 +17,11 @@ This project implements a RESTful API for managing products in an online store. 
 
 - Programming Language: Node.js
 - Web Framework: Express
-- ORM: Sequelize
-- Database: PostgreSQL (Local)
+- ORM: Sequelize for database operations
+- Database: PostgreSQL, for local and production environments
+- Authentication: JSON Web Tokens (JWT) for secure access
+- Testing: Jest for unit and integration tests
+- Environment Management: dotenv for managing environment variables
 
 ## Installation
 
@@ -37,6 +40,22 @@ This project implements a RESTful API for managing products in an online store. 
 
 3. Set up the local PostgreSQL database, you just need adjust in config/config.json.
 4. Set up environment variables (if any).
+5. Database Initialization
+   ```bash
+   npx sequelize db:create
+   ```
+6. Database migration
+   ```bash
+   npx sequelize db:migrate
+   ```
+7. Database seed with dummy data
+   ```bash
+   npx sequelize db:seed:all
+   ```
+8. Start the Server
+   ```bash
+   npx run app.js
+   ```
 
 ## API Endpoints
 
